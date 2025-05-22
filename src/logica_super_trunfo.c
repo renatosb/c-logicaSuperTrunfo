@@ -1,17 +1,17 @@
 #include <stdio.h>
 
-void imprimeAtributo(char* descricao)
+void imprimeAtributo(char *descricao)
 {
     printf("Comparação de cartas (Atributo: %s)\n\n", descricao);
 }
 
-void imprimeCidades(char* cidade1, char* cidade2, int atributo1, int atributo2)
+void imprimeCidades(char *cidade1, char *cidade2, int atributo1, int atributo2)
 {
     printf("Carta 1 - %s: %d\n", cidade1, atributo1);
     printf("Carta 2 - %s: %d\n", cidade2, atributo2);
 }
 
-void imprimeVencendor(char* descricao, char* cidade1, char* cidade2, int atributo1, int atributo2, int vencedor)
+void imprimeVencendor(char *descricao, char *cidade1, char *cidade2, int atributo1, int atributo2, int vencedor)
 {
     imprimeAtributo(descricao);
     imprimeCidades(cidade1, cidade2, atributo1, atributo2);
@@ -122,14 +122,50 @@ int main()
     int comparaPibPerCapita = pibPerCapita > pibPerCapita2;
     int comparaSuperPoder = superPoder > superPoder2;
 
-    imprimeVencendor("População", nomeCidade, nomeCidade2, populacao, populacao2, comparaPopulacao);
-    imprimeVencendor("Área", nomeCidade, nomeCidade2, area, area2, comparaArea);
-    imprimeVencendor("PIB", nomeCidade, nomeCidade2, pib, pib2, comparaPib);
-    imprimeVencendor("Número de Pontos Turísticos", nomeCidade, nomeCidade2, numPontosTuristicos, numPontosTuristicos2, comparaNumPontosTuristicos);
-    imprimeVencendor("Densidade Populacional", nomeCidade, nomeCidade2, densidadePopulacional, densidadePopulacional2, comparaDensidadePopulacional);
-    imprimeVencendor("PIB per Capita", nomeCidade, nomeCidade2, pibPerCapita, pibPerCapita2, comparaPibPerCapita);
-    imprimeVencendor("Super Poder", nomeCidade, nomeCidade2, superPoder, superPoder2, comparaSuperPoder);
+    int opcao;
 
+    printf("Selecione o atributo para comparação:\n");
+    printf("1. População\n");
+    printf("2. Área\n");  
+    printf("3. PIB\n");
+    printf("4. Número de Pontos Turísticos\n");
+    printf("5. Densidade Populacional\n");
+    printf("6. PIB per Capita\n");
+    printf("7. Super Poder\n");
+
+    scanf("%d", &opcao);
+
+    switch (opcao)
+    {
+    case 1:
+        imprimeVencendor("População", nomeCidade, nomeCidade2, populacao, populacao2, comparaPopulacao);
+        break;
+    case 2:
+        imprimeVencendor("Área", nomeCidade, nomeCidade2, area, area2, comparaArea);
+        break;
+    case 3:
+        imprimeVencendor("PIB", nomeCidade, nomeCidade2, pib, pib2, comparaPib);
+
+        break;
+    case 4:
+        imprimeVencendor("Número de Pontos Turísticos", nomeCidade, nomeCidade2, numPontosTuristicos, numPontosTuristicos2, comparaNumPontosTuristicos);
+
+        break;
+    case 5:
+        imprimeVencendor("Densidade Populacional", nomeCidade, nomeCidade2, densidadePopulacional, densidadePopulacional2, comparaDensidadePopulacional);
+
+        break;
+    case 6:
+        imprimeVencendor("PIB per Capita", nomeCidade, nomeCidade2, pibPerCapita, pibPerCapita2, comparaPibPerCapita);
+
+        break;
+    case 7:
+        imprimeVencendor("Super Poder", nomeCidade, nomeCidade2, superPoder, superPoder2, comparaSuperPoder);
+
+        break;
+    default:
+        break;
+    }
 
     return 0;
 }
